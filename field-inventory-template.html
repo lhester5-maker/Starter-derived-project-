@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Field Inventory - Community Volunteer Application</title>
+        <style>
+        body{
+            font-family:Arial,sans-serif;
+            line-height:1.5;
+            max-width:80rem;
+            margin:auto;
+            padding:1rem;
+            color:#191919;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th,td{
+            padding:.6rem;
+            border:1px solid #999;
+            text-align:left;
+            vertical-align:top;
+        }
+        th{
+            background:#f1f1f1;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>F2 · Task and Data Plan: Community Volunteer Application</h1>
+        <p>This inventory documents all 10 controls included in the volunteer application flow to satisfy data minimization and WCAG requirements.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Visible label / question</th>
+                    <th>Why necessary now?</th>
+                    <th>Required?</th>
+                    <th>Native control/type</th>
+                    <th>Submitted name/value</th>
+                    <th>Autocomplete/inputmode</th>
+                    <th>Constraint/instruction</th>
+                    <th>Sensitivity and minimization decision</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Full Name</td>
+                    <td>Required to properly address and log the volunteer applicant in our directory.</td>
+                    <td>Yes</td>
+                    <td>input / text</td>
+                    <td>name="fullname"</td>
+                    <td>autocomplete="name"</td>
+                    <td>required; text format</td>
+                    <td>Low sensitivity; restricted strictly to name for identification.</td>
+                </tr>
+                <tr>
+                    <td>Email Address</td>
+                    <td>Needed to send application confirmation and scheduling details.</td>
+                    <td>Yes</td>
+                    <td>input / email</td>
+                    <td>name="email"</td>
+                    <td>autocomplete="email"</td>
+                    <td>required; valid email format</td>
+                    <td>Moderate sensitivity; used solely for volunteer coordination communication.</td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td>Required for urgent notifications or day-of shift schedule reminders.</td>
+                    <td>Yes</td>
+                    <td>input / tel</td>
+                    <td>name="phone"</td>
+                    <td>autocomplete="tel"</td>
+                    <td>required; numeric phone pattern</td>
+                    <td>Moderate sensitivity; protected communication channel.</td>
+                </tr>
+                <tr>
+                    <td>Primary Area of Interest</td>
+                    <td>Allows matching volunteer skills and preferences to active community programs.</td>
+                    <td>Yes</td>
+                    <td>select / dropdown</td>
+                    <td>name="interest"</td>
+                    <td>N/A</td>
+                    <td>required; selection required</td>
+                    <td>Low sensitivity; preference data only.</td>
+                </tr>
+                <tr>
+                    <td>Weekly Availability</td>
+                    <td>Ensures applicants are scheduled only during times they are free.</td>
+                    <td>Yes</td>
+                    <td>input / checkbox (group)</td>
+                    <td>name="availability" value="weekday/weekend"</td>
+                    <td>N/A</td>
+                    <td>At least one option required</td>
+                    <td>Low sensitivity; scheduling availability only.</td>
+                </tr>
+                <tr>
+                    <td>Preferred Session Time</td>
+                    <td>Determines whether morning or afternoon shift rosters fit the applicant.</td>
+                    <td>Yes</td>
+                    <td>input / radio (group)</td>
+                    <td>name="session" value="morning / afternoon"</td>
+                    <td>N/A</td>
+                    <td>required; mutually exclusive choice</td>
+                    <td>Low sensitivity; preference selection.</td>
+                </tr>
+                <tr>
+                    <td>Hours Available per Week</td>
+                    <td>Enables program leads to cap or allocate weekly volunteer shift hours.</td>
+                    <td>Yes</td>
+                    <td>input / number</td>
+                    <td>name="weeklyhours"</td>
+                    <td>N/A</td>
+                    <td>required; min="1", max="40"</td>
+                    <td>Low sensitivity; numerical tracking metric.</td>
+                </tr>
+                <tr>
+                    <td>Emergency Contact Name</td>
+                    <td>Necessary for on-site health or safety emergencies during volunteer shifts.</td>
+                    <td>Yes</td>
+                    <td>input / text</td>
+                    <td>name="emergencycontact"</td>
+                    <td>autocomplete="off"</td>
+                    <td>required; text format</td>
+                    <td>Moderate sensitivity; collected strictly for safety protocol.</td>
+                </tr>
+                <tr>
+                    <td>Relevant Skills or Experience</td>
+                    <td>Helps coordinators place experienced volunteers in specialized support roles.</td>
+                    <td>No</td>
+                    <td>textarea</td>
+                    <td>name="skills"</td>
+                    <td>N/A</td>
+                    <td>Optional; max 300 characters</td>
+                    <td>Low sensitivity; optional background detail.</td>
+                </tr>
+                <tr>
+                    <td>Agreement & Privacy Consent</td>
+                    <td>Confirms applicant agreement to organization code of conduct and privacy policy.</td>
+                    <td>Yes</td>
+                    <td>input / checkbox</td>
+                    <td>name="consent" value="agreed"</td>
+                    <td>N/A</td>
+                    <td>required; must be checked</td>
+                    <td>Legal compliance requirement.</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
