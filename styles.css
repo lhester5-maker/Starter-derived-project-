@@ -1,0 +1,212 @@
+:root {
+    --color-text: #0a0a0a;
+    --color-surface: #fff;
+    --color-action: #8c1d40;      /* ASU Maroon */
+    --color-action-hover: #6a142f;/* Darker maroon for hover states */
+    --color-accent: #ffc627;      /* ASU Gold for focus rings & eyebrow */
+    --color-border: #747474;
+    --color-error: #b3261e;
+    --color-muted: #5c6670;
+    --space-3: 1rem;
+    --radius: .5rem;
+    --measure: 68ch;
+    --touch-target-min: 44px;     /* F6 Target Size Requirement */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--color-text);
+    background: var(--color-surface);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* F1 Purpose Header Banner */
+.page-header {
+    padding: clamp(2rem, 6vw, 5rem);
+    background: var(--color-action);
+    color: #fff;
+}
+
+.eyebrow {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.lede {
+    max-width: var(--measure);
+    font-size: 1.25rem;
+}
+
+.form-expectations-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: .25rem solid var(--color-accent);
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.form-expectations-box ul {
+    margin: 0 0 0.5rem 0;
+    padding-left: 1.25rem;
+}
+
+/* Layout */
+main {
+    max-width: 52rem;
+    margin: auto;
+    padding: var(--space-3);
+}
+
+section, form {
+    margin-block: 2rem;
+}
+
+form, fieldset, .field {
+    display: grid;
+    gap: .65rem;
+}
+
+form {
+    gap: 1.5rem;
+}
+
+fieldset {
+    padding: 1.25rem;
+    border: 1px solid #d0d0d0;
+    border-radius: var(--radius);
+}
+
+.sub-fieldset {
+    border: 1px dashed #b0b0b0;
+    margin-top: 0.5rem;
+}
+
+legend, label {
+    font-weight: 700;
+}
+
+legend {
+    color: var(--color-action);
+    padding: 0 .25rem;
+}
+
+.required-star {
+    color: var(--color-error);
+    margin-left: .15rem;
+}
+
+.help {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+/* Native Control Formats & 44px Touch Targets */
+input, select, textarea, button {
+    font: inherit;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), select, textarea {
+    width: 100%;
+    min-height: var(--touch-target-min); /* Touch target accessibility */
+    padding: .75rem;
+    border: 2px solid var(--color-border);
+    border-radius: .25rem;
+    background-color: #f9f9f9;
+}
+
+textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+/* Custom Styled Radio & Checkbox Choices */
+.choice {
+    display: flex;
+    gap: .65rem;
+    align-items: center;
+    min-height: var(--touch-target-min); /* 44px minimum touch height */
+    padding: .25rem 0;
+    cursor: pointer;
+}
+
+.choice input {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    accent-color: var(--color-action); /* Custom Maroon for radio/checkbox */
+    cursor: pointer;
+}
+
+/* Button & Action Styling */
+button {
+    justify-self: start;
+    min-height: var(--touch-target-min);
+    padding: .75rem 1.5rem;
+    background: var(--color-action);
+    color: #cd6a6a;
+    border: 2px solid var(--color-action);
+    border-radius: .25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background: var(--color-action-hover);
+    border-color: var(--color-action-hover);
+}
+
+/* Keyboard Focus Ring State */
+:focus-visible {
+    outline: .25rem solid var(--color-accent) !important;
+    outline-offset: .2rem !important;
+}
+
+/* F5 State Specimen Banner & Error States */
+.error-summary, .field-error {
+    padding: 1rem;
+    border-left: .4rem solid var(--color-error);
+    background: #fff1f0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.error-summary h2 {
+    margin-top: 0;
+    color: var(--color-error);
+    font-size: 1.2rem;
+}
+
+.error-summary ul {
+    margin-bottom: 0;
+}
+
+.error-summary a {
+    color: var(--color-error);
+    font-weight: bold;
+}
+
+.field-error input,
+.field-error select,
+.field-error textarea {
+    border-color: var(--color-error);
+    background-color: #fff8f8;
+}
+
+button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+/* Responsive Grid for Paired Fields */
+@media (min-width: 48rem) {
+    .paired-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+}
